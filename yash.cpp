@@ -1,20 +1,25 @@
-#include<iostream>
+ // array  -10 ,-
+ 
+ #include<iostream>
 using namespace std;
-#include<string.h>
 int main()
 {
-    string password,correct_pass="yash";
-    cout <<"Enter a string=";
-    for(int i=0;i<=5;i++)
+    int arr[]={-10,-5,-90,85,55,63,-1};
+    int n =arr.size();
+    int max=0,min=0;
+    for (i=0;i<n;i++)
     {
-        
-        cin>>password;
-       
-        if(password==correct_pass)
+        if(arr[i]<min)
         {
-            cout <<"same password";
-            break;
-        } cout<<"wrong password";
+            min=arr[i];
+        }
+        else if(arr[i]>max)
+        {
+            max = arr[i];
+        }
+        else {
+
+        }
+        cout <<""
     }
-     return 0;
 }
