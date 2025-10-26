@@ -1,38 +1,40 @@
-// A class Employee stores name, designation, and salary. Write a program to read details of employees and display the one with the highest salary.
+// 15.	A class Employee contains id and salary. Show how a const object restricts access only to const functions.A class Employee contains id and salary. Show how a const object restricts access only to const functions.
 #include <iostream>
 using namespace std;
 
 class Employee {
-    string name, designation;
+    int id;
     double salary;
+
 public:
-    void input() {
-        cin >> name >> designation >> salary;
+    Employee(int i, double s) {
+        id = i;
+        salary = s;
     }
-    double getSalary() {
+
+    int Id() const {
+        return id;
+    }
+
+    double Salary() const {
         return salary;
     }
-    void display() {
-        cout << name << " " << designation << " " << salary << endl;
+
+    void Salary(double s) {
+        salary = s;
+    }
+
+    void display() const {
+        cout << "ID: " << id <<endl<<"Salary: " << salary << endl;
     }
 };
 
 int main() {
-    int n;
-    cout << "Enter number of employees: ";
-    cin >> n;
+    const Employee e1(1, 5000);
 
-    Employee e[n];
-    for (int i = 0; i < n; i++) e[i].input();
-
-    int maxIndex = 0;
-    for (int i = 1; i < n; i++) {
-        if (e[i].getSalary() > e[maxIndex].getSalary())
-            maxIndex = i;
-    }
-
-    cout << "Employee with highest salary:\n";
-    e[maxIndex].display();
+    cout << "Employee ID: " << e1.Id() << endl;
+    cout << "Employee Salary: " << e1.Salary() << endl;
+    e1.display();
 
     return 0;
 }
